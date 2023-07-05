@@ -1,0 +1,61 @@
+.login-background {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgb(14, 11, 77) 0%,
+    rgba(9, 121, 91, 1) 60%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-card {
+  background-color: rgba(211, 209, 209, 0.062);
+  border: 2px solid rgba(255, 255, 255, 0.171);
+  border-radius: 15px;
+}
+
+.form-control-input {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 80%;
+}
+
+.form-control-input input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 125%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control-input input:focus,
+.form-control-input input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control-input label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control-input label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control-input input:focus + label span,
+.form-control-input input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
