@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
 import { Modal } from "react-bootstrap";
 
 import "./Login.css";
 
+import Loading from "../components/Loading";
+
 const Login = () => {
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
@@ -35,10 +39,12 @@ const Login = () => {
       },
     };
 
+    setLoading(true);
     await axios
       .request(options)
       .then((response) => {
         console.log(response);
+        setLoading(false);
         localStorage.clear();
         localStorage.setItem("tokenApi", response.data.token);
         localStorage.setItem("userEmail", response.data.user.email);
@@ -47,6 +53,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
         Swal.fire({
           title: error.response.data.error ?? "Error",
           icon: "error",
@@ -67,17 +74,23 @@ const Login = () => {
       },
     };
 
+    setLoading(true);
     await axios
       .request(options)
       .then((response) => {
         console.log(response);
+        setLoading(false);
+        handleClose();
         Swal.fire({
-          title: "Ok",
+          title: "User successfully registered",
           icon: "success",
         });
+        setNewEmail("");
+        setNewPassword("");
       })
       .catch((error) => {
         console.log(error.response.data);
+        setLoading(true);
         Swal.fire({
           title: error.response.data.error ?? "Error",
           icon: "error",
@@ -87,6 +100,7 @@ const Login = () => {
 
   return (
     <>
+      <Loading loading={loading} />
       <div className="container-fluid login-background">
         <div className="position-absolute top-50 start-50 translate-middle login-card p-4 col-4">
           <div className="row">
