@@ -42,11 +42,13 @@ const DomainCard = (props) => {
           />
         </div>
         <div className="col-md-1">
-          <FiRepeat
-            size={20}
-            onClick={() => testDomain()}
-            style={{ cursor: "pointer" }}
-          />
+          {status != 3 && (
+            <FiRepeat
+              size={20}
+              onClick={() => testDomain()}
+              style={{ cursor: "pointer" }}
+            />
+          )}
         </div>
         <div className="col-md-7">
           <p>
@@ -65,7 +67,7 @@ const DomainCard = (props) => {
 
 const DomainLoader = () => {
   return (
-    <div class="spinner">
+    <div class="spinner-domain">
       <div></div>
       <div></div>
       <div></div>

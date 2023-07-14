@@ -16,7 +16,7 @@ const UserCard = (props) => {
   };
 
   return (
-    <div className="card p-2">
+    <div className="card-user p-2">
       <div className="row text-center justify-content-center ">
         <div className="col-2">
           <BiSolidUserCircle size={30} />
