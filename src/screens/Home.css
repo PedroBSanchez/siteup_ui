@@ -1,5 +1,27 @@
-.home-background {
+.home-background-header {
   background-image: url("../assets/background.png");
-  background-repeat: unset;
+  background-repeat: initial;
   background-size: cover;
+
+  width: 100%;
+}
+
+.home-background {
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+}
+
+.home-background-content {
+  background-color: blanchedalmond;
+}
+
+.add-domain-button {
+  cursor: pointer;
+  transition: 0.5s;
+  color: rgb(3, 70, 36);
+}
+
+.add-domain-button:hover {
+  color: rgb(104, 175, 142);
+  transition: 0.5s;
 }

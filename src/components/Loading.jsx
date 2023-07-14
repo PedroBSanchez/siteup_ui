@@ -9,7 +9,7 @@ const Loading = ({ loading }) => {
       <Modal.Body>
         <div className="row text-center justify-content-center p-3">
           <div className="col-3">
-            <div class="spinner">
+            <div className="spinner">
               <div></div>
               <div></div>
               <div></div>
